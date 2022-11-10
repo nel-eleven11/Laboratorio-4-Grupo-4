@@ -141,11 +141,18 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
     }
 
     //metodo de modo_estado
-    
+
     @Override
     public void estado(Boolean state) {
-        // TODO Auto-generated method stub
         
+        if(state)
+        {
+            System.out.println("Encendido");
+        }
+        else
+        {
+            System.out.println("Apagado");
+        }
     }
 
     
