@@ -1,58 +1,43 @@
 import java.util.ArrayList;
+import java.util.Random;
 
-public class radio {
+public class radio implements modo_estado, modo_radio, modo_volumen, productividad, reproduccion, telefono {
 
     private ArrayList<cancion> canciones;
     private ArrayList<contacto> contactos;
-    private ArrayList<float[]> emisoras;
+    private ArrayList<double[]> emisoras;
 
     public radio(){
         canciones = new ArrayList<cancion>();
         contactos = new ArrayList<contacto>();
-        emisoras = new ArrayList<float[]>();
+        emisoras = new ArrayList<double[]>();
     }
 
-    public void agregarCancion(cancion cancion){
-        canciones.add(cancion);
+
+    public ArrayList<cancion> getCanciones() {
+        return this.canciones;
     }
 
-    public void agregarContacto(contacto contacto){
-        contactos.add(contacto);
+    public void setCanciones(ArrayList<cancion> canciones) {
+        this.canciones = canciones;
     }
+
+    public ArrayList<contacto> getContactos() {
+        return this.contactos;
+    }
+
+    public void setContactos(ArrayList<contacto> contactos) {
+        this.contactos = contactos;
+    }
+
+    public ArrayList<double[]> getEmisoras() {
+        return this.emisoras;
+    }
+
+    public void setEmisoras(ArrayList<double[]> emisoras) {
+        this.emisoras = emisoras;
+    }
+
     
-    public void agregarEmisora(float[] emisora){
-        emisoras.add(emisora);
-    }
-
-    public void eliminarCancion(cancion cancion){
-        canciones.remove(cancion);
-    }
-
-    public void eliminarContacto(contacto contacto){
-        contactos.remove(contacto);
-    }
-
-    public void eliminarEmisora(float[] emisora){
-        emisoras.remove(emisora);
-    }
-
-    public void mostrarCanciones(){
-        for (cancion cancion : canciones) {
-            System.out.println(cancion.toString());
-        }
-    }
-
-    public void mostrarContactos(){
-        for (contacto contacto : contactos) {
-            System.out.println(contacto.toString());
-        }
-    }
-
-    public void mostrarEmisoras(){
-        for (float[] emisora : emisoras) {
-            System.out.println(emisora.toString());
-        }
-    }
-
     
 }
