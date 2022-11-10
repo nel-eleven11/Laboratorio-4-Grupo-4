@@ -1,4 +1,6 @@
 public interface modo_volumen{
-    public int volumen();
     
+    public void volumen(Boolean flag);
 }
+    
+
