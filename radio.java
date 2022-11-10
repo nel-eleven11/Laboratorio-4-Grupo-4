@@ -13,7 +13,7 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         emisoras = new ArrayList<double[]>();
     }
 
-
+    
     public ArrayList<cancion> getCanciones() {
         return this.canciones;
     }
@@ -38,7 +38,7 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         this.emisoras = emisoras;
     }
 
-
+    //metodo de modo_telefono
     @Override
     public void conexion(boolean conection) {
         // TODO Auto-generated method stub
@@ -73,6 +73,7 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         
     }
 
+    //metodo de modo_reproduccion
 
     @Override
     public void seleccionar(ArrayList<cancion> lista) {
@@ -94,6 +95,7 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         
     }
 
+    //metodo de modo_productividad
 
     @Override
     public String viajes(String destino) {
@@ -101,6 +103,7 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         return null;
     }
 
+    //metodo de modo_volumen
 
     @Override
     public void volumen(Boolean flag) {
@@ -108,6 +111,7 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         
     }
 
+    //metodo de modo_radio
 
     @Override
     public void cambiar(Boolean flag) {
@@ -136,7 +140,8 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         
     }
 
-
+    //metodo de modo_estado
+    
     @Override
     public void estado(Boolean state) {
         // TODO Auto-generated method stub
