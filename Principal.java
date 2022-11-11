@@ -4,6 +4,7 @@ public class Principal {
     public static void main(String[] args) {
 
         Scanner keyboard = new Scanner(System.in);
+        radio rad = new radio();
         int switch1case = 0;
         while(switch1case != 7)
         {
@@ -24,6 +25,25 @@ public class Principal {
                         case 1:
                         {
                             //subir o bajar volumen
+                            int respuesta = 0;
+                            System.out.println("¿Qué desea hacer? \n 1. Subir volumen \n 2. Bajar volumen");
+                            respuesta = keyboard.nextInt();
+                            if(respuesta == 1||respuesta == 2)
+                            {
+                                if(respuesta == 1)
+                                {
+                                    rad.volumen(true);
+                                }
+                                else
+                                {
+                                    rad.volumen(false);
+                                }
+                            }
+                            else
+                            {
+                                System.out.println("Opción no válida");
+                                
+                            }
                             break;
                         }case 2:
                         {
