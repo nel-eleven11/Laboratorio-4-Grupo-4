@@ -229,8 +229,11 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         else{
             if(volumen==0) {
                 System.out.println("El volumen es de : 0. No se puede bajar más");
-            }           volumen = volumen - 1;
-            System.out.println("El volumen es de :"+volumen);
+            }
+            else{
+                volumen = volumen - 1;
+                System.out.println("El volumen es de :"+volumen);
+            }          
         }
         
         
@@ -282,8 +285,8 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
     public void guardar(ArrayList<Double> lista, Double emisora_number) {
         if(lista.size()<50)
         {
-        lista.add(emisora_number);
-        System.out.println("Se ha guardado la emisora "+emisora_number);
+            lista.add(emisora_number);
+            System.out.println("Se ha guardado la emisora "+emisora_number);
         }
         else
         {
@@ -300,7 +303,7 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         for(int i = 0; i < lista.size(); i++){
             System.out.println(lista.get(i));
         System.out.println("Cual desea que sea la nueva emisora");
-        int o = JOptionPane.showConfirmDialog(null, "¿Qué emisora quiere?");
+        int o = Integer.parseInt(JOptionPane.showInputDialog(null, "¿Qué emisora quiere?"));
         emisora=lista.get(o-1); 
         }  
         
