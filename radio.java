@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Random;
-import javax.swing.JOptionPane;
+
+import java.util.Scanner;
+
 
 public class radio implements modo_estado, modo_radio, modo_volumen, modo_productividad, modo_reproduccion, modo_telefono {
 
@@ -111,13 +113,16 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
     //metodo de modo_telefono
     @Override
     public void conexion(boolean conection) {
+       
         
         if(conection == true){
             setconectar(true);
-            JOptionPane.showMessageDialog(null, "Conectado");
+            System.out.println("Conectado");
+            
         }else{
             setconectar(false);
-            JOptionPane.showMessageDialog(null, "Desconectado");
+            System.out.println("Desconectado");
+            
         }
     }
 
@@ -135,20 +140,26 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
     @Override
     public void llamar(ArrayList<contacto> lista) {
         int contador = 0;
+        Scanner keyboard = new Scanner(System.in);
         for(int i = 0; i < lista.size(); i++){
             System.out.println(contador +". "+ lista.get(i).toString());
             contador = contador +1;
         }
-        int opcion = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de contacto que desea llamar"));
-        JOptionPane.showMessageDialog(null, "Llamando a " + lista.get(opcion).getNombre());
- 
+        System.out.println("Ingrese el numero del contacto que desea llamar");
+        int numero = keyboard.nextInt();
+
+        if(numero < lista.size()){
+            System.out.println("Llamando a: " + lista.get(numero).toString());
+        }else{
+            System.out.println("El contacto no existe");
+        }
     }
 
 
     @Override
     public void finalizar() {
 
-        JOptionPane.showMessageDialog(null, "Llamada finalizada");        
+        System.out.println("Llamada finalizada");       
     }
 
 
@@ -157,10 +168,10 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
 
         if(eleccion == true){
             setmodo_audio("speaker");
-            JOptionPane.showMessageDialog(null, "Modo de audio: " + getmodo_audio());
+            System.out.println("Modo de audio: " + getmodo_audio());
         }else{
             setmodo_audio("headphone");
-            JOptionPane.showMessageDialog(null, "Modo de audio: " + getmodo_audio());
+            System.out.println("Modo de audio: " + getmodo_audio());
         }   
     }
 
@@ -212,7 +223,7 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         Random ra = new Random();
         int distancia = ra.nextInt(150)+1; 
         int tiempo = ra.nextInt(20)+1; 
-        String viaje="Para llegar a "+destino+" se tardara "+tiempo+"horas en recorrer "+distancia+"kilómetros";
+        String viaje="Para llegar a "+destino+" se tardara "+tiempo+" horas en recorrer "+distancia+" kilómetros";
         
         return viaje;
     }
@@ -261,19 +272,16 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
 
 
     @Override
-    public void cambiar_e(Boolean flag) {
-
-        if(flag == true){
-            if(posicion < emisoras.size()){
-                posicion++;
+    public void cambiar_e(Boolean emi) {
+        
+        if(emi == true){
+            emisora = emisora + 0.5;
+        }
+        else{
+            if(emisora == 0){
+                System.out.println("No se puede bajar más");
             }else{
-                posicion = 0;
-            }
-        }else{
-            if(posicion > 0){
-                posicion--;
-            }else{
-                posicion = emisoras.size();
+                emisora = emisora - 0.5;
             }
         }  
         System.out.println("La emisora es "+emisora);
@@ -298,15 +306,20 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
 
     @Override
     public void cargar(ArrayList<Double> lista) {
-        
+        Scanner keyboard = new Scanner(System.in);
         System.out.println("Estas son las emisoras guardadas:\n");
-        for(int i = 0; i < lista.size(); i++){
-            System.out.println(lista.get(i));
+        for(int i = 0; i < lista.size(); i++)
+        {
+            System.out.println(i+""+lista.get(i));
+        }
         System.out.println("Cual desea que sea la nueva emisora");
-        int o = Integer.parseInt(JOptionPane.showInputDialog(null, "¿Qué emisora quiere?"));
-        emisora=lista.get(o-1); 
-        }  
-        
+        int numero = keyboard.nextInt();
+        if(numero < lista.size()){
+            System.out.println("La nueva emisora es: " + lista.get(numero));
+        }
+        else{
+            System.out.println("La emisora no está guerdada");
+        }           
     }
 
     //metodo de modo_estado 

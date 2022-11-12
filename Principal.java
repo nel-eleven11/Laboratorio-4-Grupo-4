@@ -168,9 +168,11 @@ public class Principal {
                                     respuesta = keyboard.nextInt();
                                     if(respuesta == 1)
                                     {
+                                        canciones = lista1;
                                         rad.seleccionar(lista1);
 
                                     }else if (respuesta == 2){
+                                        canciones = lista2;
                                         rad.seleccionar(lista2);
                                     }else
                                     {
@@ -207,6 +209,7 @@ public class Principal {
                                 }case 3:
                                 {
                                     //Escuchar cancion o seas datos de la cancion: autor, duracion y asi
+
                                         rad.escuchar(canciones);
                                     break;
                                 }
