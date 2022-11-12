@@ -43,7 +43,7 @@ public class Principal {
         contactos.add(alba);
 
         int switch1case = 0;
-        while(switch1case != 7)
+        while((switch1case < 3) &&(switch1case >= 0))
         {
             System.out.println("----------------------------------------------\n Radio en modo reposo, desea: \n1. Encender Radio \n" + "2. Apagar Radio \n" );
             switch1case = keyboard.nextInt();
@@ -338,16 +338,22 @@ public class Principal {
 
                                 }
                                 break;
-                            }case 6:{
+                            }
+                            case 6:
+                            {
+                                System.out.println("Poniendo el radio en modo reposo");
                                 valid = false;
+                                break;
                             }
 
                         }
                     }while(valid == true);
-
-                }case 2:
+                    break;
+                }
+                case 2:
                 {
                     //Apagar radio
+                    System.out.println("Apagando radio");
                     System.exit(0);
                     break;
                 }

@@ -112,10 +112,10 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
 
     //metodo de modo_telefono
     @Override
-    public void conexion(boolean conection) {
+    public void conexion(boolean coneccion) {
        
         
-        if(conection == true){
+        if(coneccion == true){
             setconectar(true);
             System.out.println("Conectado");
             
@@ -189,9 +189,9 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
 
 
     @Override
-    public void cambiar_c(Boolean flag, ArrayList<cancion> lista) {
+    public void cambiar_c(Boolean resp, ArrayList<cancion> lista) {
 
-        if(flag == true){
+        if(resp == true){
             if(posicion < lista.size()){
                 posicion++;
             }else{
@@ -223,7 +223,7 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         Random ra = new Random();
         int distancia = ra.nextInt(150)+1; 
         int tiempo = ra.nextInt(20)+1; 
-        String viaje="Para llegar a "+destino+" se tardara "+tiempo+" horas en recorrer "+distancia+" kilómetros";
+        String viaje="Para llegar a "+destino+" se tardara "+tiempo+" horas en recorrer "+distancia+" kilómetros.";
         
         return viaje;
     }
@@ -253,12 +253,12 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
     //metodo de modo_radio
 
     @Override
-    public void cambiar(Boolean flag) {
+    public void cambiar(Boolean resp) {
         
        
         {
             String modulation;
-            if (flag)
+            if (resp)
             {
                 modulation="FM";
             }
@@ -298,7 +298,7 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         }
         else
         {
-            System.out.println("No se puede guardar más emisoras");
+            System.out.println("No se pueden guardar más emisoras");
         }
         
     }
@@ -318,7 +318,7 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
             System.out.println("La nueva emisora es: " + lista.get(numero));
         }
         else{
-            System.out.println("La emisora no está guerdada");
+            System.out.println("La emisora no está guardada");
         }           
     }
 
