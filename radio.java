@@ -30,86 +30,170 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         modo_audio = "speaker";
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getmodulacion(){
         return modulacion;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getestado(){
         return estado;
     }
 
+    
+    /** 
+     * @return Boolean
+     */
     public Boolean getconectar(){
         return conectar;
     }
 
+    
+    /** 
+     * @return double
+     */
     public double getemisora(){
         return emisora;
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getvolumen(){
         return volumen;
     }   
 
+    
+    /** 
+     * @return int
+     */
     public int getposicion(){
         return posicion;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getmodo_audio(){
         return modo_audio;
     }
 
+    
+    /** 
+     * @param modulacion
+     */
     public void setmodulacion(String modulacion){
         this.modulacion = modulacion;
     }
 
+    
+    /** 
+     * @param estado
+     */
     public void setestado(String estado){
         this.estado = estado;
     }
 
+    
+    /** 
+     * @param conectar
+     */
     public void setconectar(Boolean conectar){
         this.conectar = conectar;
     }
 
+    
+    /** 
+     * @param emisora
+     */
     public void setemisora(double emisora){
         this.emisora = emisora;
     }
 
+    
+    /** 
+     * @param volumen
+     */
     public void setvolumen(int volumen){
         this.volumen = volumen;
     }
 
+    
+    /** 
+     * @param posicion
+     */
     public void setposicion(int posicion){
         this.posicion = posicion;
     }
 
+    
+    /** 
+     * @param modo_audio
+     */
     public void setmodo_audio(String modo_audio){
         this.modo_audio = modo_audio;
     }
  
+    
+    /** 
+     * @return ArrayList<cancion>
+     */
     public ArrayList<cancion> getCanciones() {
         return this.canciones;
     }
 
+    
+    /** 
+     * @param canciones
+     */
     public void setCanciones(ArrayList<cancion> canciones) {
         this.canciones = canciones;
     }
 
+    
+    /** 
+     * @return ArrayList<contacto>
+     */
     public ArrayList<contacto> getContactos() {
         return this.contactos;
     }
 
+    
+    /** 
+     * @param contactos
+     */
     public void setContactos(ArrayList<contacto> contactos) {
         this.contactos = contactos;
     }
 
+    
+    /** 
+     * @return ArrayList<double[]>
+     */
     public ArrayList<double[]> getEmisoras() {
         return this.emisoras;
     }
 
+    
+    /** 
+     * @param emisoras
+     */
     public void setEmisoras(ArrayList<double[]> emisoras) {
         this.emisoras = emisoras;
     }
 
+    
+    /** 
+     * @param coneccion
+     */
     //metodo de modo_telefono
     @Override
     public void conexion(boolean coneccion) {
@@ -127,6 +211,10 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
     }
 
 
+    
+    /** 
+     * @param lista
+     */
     @Override
     public void contactos(ArrayList<contacto> lista) {
         
@@ -137,6 +225,10 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
     }
 
 
+    
+    /** 
+     * @param lista
+     */
     @Override
     public void llamar(ArrayList<contacto> lista) {
         int contador = 0;
@@ -163,6 +255,10 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
     }
 
 
+    
+    /** 
+     * @param eleccion
+     */
     @Override
     public void audio(Boolean eleccion) {
 
@@ -175,6 +271,10 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         }   
     }
 
+    
+    /** 
+     * @param lista
+     */
     //metodo de modo_reproduccion
 
     @Override
@@ -188,6 +288,11 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
     }
 
 
+    
+    /** 
+     * @param resp
+     * @param lista
+     */
     @Override
     public void cambiar_c(Boolean resp, ArrayList<cancion> lista) {
 
@@ -208,6 +313,10 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
     }
 
 
+    
+    /** 
+     * @param lista
+     */
     @Override
     public void escuchar(ArrayList<cancion> lista) {
 
@@ -215,6 +324,11 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         
     }
 
+    
+    /** 
+     * @param destino
+     * @return String
+     */
     //metodo de modo_productividad
 
     @Override
@@ -228,6 +342,10 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         return viaje;
     }
 
+    
+    /** 
+     * @param vol
+     */
     //metodo de modo_volumen
 
     @Override
@@ -250,6 +368,10 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         
     }
 
+    
+    /** 
+     * @param resp
+     */
     //metodo de modo_radio
 
     @Override
@@ -271,6 +393,10 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
     }
 
 
+    
+    /** 
+     * @param emi
+     */
     @Override
     public void cambiar_e(Boolean emi) {
         
@@ -289,6 +415,11 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
     }
 
 
+    
+    /** 
+     * @param lista
+     * @param emisora_number
+     */
     @Override
     public void guardar(ArrayList<Double> lista, Double emisora_number) {
         if(lista.size()<50)
@@ -304,6 +435,10 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
     }
 
 
+    
+    /** 
+     * @param lista
+     */
     @Override
     public void cargar(ArrayList<Double> lista) {
         Scanner keyboard = new Scanner(System.in);
@@ -322,6 +457,10 @@ public class radio implements modo_estado, modo_radio, modo_volumen, modo_produc
         }           
     }
 
+    
+    /** 
+     * @param es
+     */
     //metodo de modo_estado 
 
     @Override
